@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #1f2937;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
