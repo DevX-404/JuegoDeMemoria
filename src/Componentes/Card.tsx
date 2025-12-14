@@ -7,19 +7,18 @@ interface CardAccesorios {
 }
 
 const Card: React.FC<CardAccesorios> = ({ card, onCardClick }) => {
-    const cardClass = `card ${card.isFlipped || card.isMatched ? "flipped" : ""} ${card.isMatched ? "matched" : ""}`;
+    const isInteractable = !card.isFlipped && !card.isMatched;
+    const cardClass = `card ${card.isFlipped || card.isMatched ? "flipped" : ""} ${card.isMatched ? "matched" : ""} ${isInteractable ? "hoverable" : ""}`;
 
     const handleClick = () => {
-        if (card.isMatched || card.isFlipped) {
-            return;
-        }
+        if (!isInteractable) return;
         onCardClick(card.id);
     };
 
     return (
         <div className={cardClass} onClick={handleClick}>
             <div className="card-inner">
-                <div className="card-front">?</div>
+                <div className="card-front">?</div> 
                 <div className="card-back">{card.value}</div>
             </div>
         </div>
